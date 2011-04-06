@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Menus, TlHelp32, PsApi, ProcessInfo, AppInfo, Addresses,
   MemoryDeclaration, TextUtils, ExitThread, Memory, Player, StatusThread,
-  ExtCtrls, TrayThread, Healing, HealingThread, Hotkey, Input, GUI, AntiDebugThread,
+  ExtCtrls, TrayThread, Healing, HealingThread, Hotkey, Input, GUI,
   StrUtils, Location, LbCipher, LbClass;
 
 type
@@ -62,7 +62,6 @@ var
   HadClient: Boolean;
   HealingForm: THealingForm;
   HealingModule: THealingThread;
-  ADThread: TAntiDebug;
   GUI: TTibiaGUI;
   ExitThr: TExitThread;
   StatusThr: TStatusThread;
@@ -227,8 +226,6 @@ begin
   Player := TPlayer.Create;
   AppsInfo := TAppInfo.Create(self);
   ProcInfo := TProcessInfo.Create(self);
-  ADThread := TAntiDebug.Create(true);
-  //ADThread.Start;
   RefreshClientList;
   TibiaPID := 0;
   ExitThr := TExitThread.Create(true);
